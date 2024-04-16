@@ -1,0 +1,23 @@
+{
+  "name": "Oracle_sink",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "topics": "CDC_CUSTACCOUNT",
+    "connection.url": "jdbc:oracle:thin:@oracle-11g:1521:XE",
+    "connection.user": "MYUSER",
+    "connection.password": "password",
+    "dialect.name": "OracleDatabaseDialect",
+    "insert.mode": "upsert",
+    "table.name.format": "account",
+    "pk.mode": "record_key",
+    "pk.fields": "ACCOUNT_ID",
+    "fields.whitelist": "CUSTOMER_ID, ACCOUNT_TYPE, ACCOUNT_OPENING_DATE",
+    "auto.create": "true",
+    "auto.evolve": "true",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+    "key.converter.schema.registry.url": "http://schema-registry:8081"
+  }
+}
+
