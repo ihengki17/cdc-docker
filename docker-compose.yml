@@ -252,8 +252,8 @@ services:
     ports:
       - "1521:1521"
     volumes:
-      - ./01_init.sql:/docker-entrypoint-initdb.d/01_init.sql
-      - ./02_init.sql:/docker-entrypoint-initdb.d/02_init.sql
-      - ./c360_tables_oracle.sh:/docker-entrypoint-initdb.d/c360_tables_oracle.sh
+      - ./oracle/01_init.sql:/docker-entrypoint-initdb.d/01_init.sql
+      - ./oracle/02_init.sql:/docker-entrypoint-initdb.d/02_init.sql
+      - ./oracle/c360_tables_oracle.sh:/docker-entrypoint-initdb.d/c360_tables_oracle.sh
     environment:
       ORACLE_ALLOW_REMOTE: "true"
