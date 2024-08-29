@@ -1,0 +1,25 @@
+{
+  "name": "Postgres_sink",
+  "config": {
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+    "key.converter.schema.registry.url": "http://schema-registry:8081",
+    "name": "Postgres_sink",
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "topics": "CDC_CUSTACCOUNT",
+    "connection.url": "jdbc:postgresql://34.101.53.232:5432/exampledb",
+    "connection.user": "docker",
+    "connection.password": "******",
+    "dialect.name": "PostgreSqlDatabaseDialect",
+    "insert.mode": "upsert",
+    "table.name.format": "account",
+    "pk.mode": "record_key",
+    "pk.fields": "ACCOUNT_ID",
+    "fields.whitelist": "CUSTOMER_ID, ACCOUNT_TYPE, ACCOUNT_OPENING_DATE",
+    "auto.create": "true",
+    "auto.evolve": "true"
+  }
+}
+
+
